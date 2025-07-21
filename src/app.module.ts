@@ -1,10 +1,18 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from './database/database.module';
-import { UserModule } from './user/user.module';
 import { DomainModule } from './domain.module';
+import { ConfigModule } from '@nestjs/config';
+import { envSchema } from './env';
 
 @Module({
-  imports: [DatabaseModule, DomainModule],
+  imports: [
+    ConfigModule.forRoot({
+      validate: (env) => envSchema.parse(env),
+      isGlobal: true,
+    }),
+    DatabaseModule,
+    DomainModule,
+  ],
   controllers: [],
   providers: [],
 })
