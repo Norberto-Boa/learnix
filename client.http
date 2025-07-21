@@ -1,4 +1,11 @@
 @baseUrl = http://localhost:3000
 
 # @name testPrisma
-GET {{baseUrl}}/hello
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+	"name": "JohnDoe",
+  "email": "johndoe5@gmail.com",
+  "password": "1234568"
+}
