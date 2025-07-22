@@ -1,6 +1,17 @@
-@baseUrl = http://localhost:3000
+@baseUrl = http://localhost:3333
 
-# @name testPrisma
+# @name authentication
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "johndoe5@gmail.com",
+  "password": "1234568"
+}
+
+###
+
+# @name Registration
 POST {{baseUrl}}/register
 Content-Type: application/json
 
@@ -9,3 +20,5 @@ Content-Type: application/json
   "email": "johndoe5@gmail.com",
   "password": "1234568"
 }
+
+

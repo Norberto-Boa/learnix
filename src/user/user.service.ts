@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateDTO } from './dto/create.dto';
 import { UsersRepository } from './repositories/user-repository.interface';
+import type { User } from '@prisma/client';
 
 @Injectable()
 export class UserService {
@@ -14,5 +15,14 @@ export class UserService {
     await this.usersRepository.create(data);
 
     return true;
+  }
+
+  async findByEmail(email: string): Promise<User | null> {
+    const user = await this.usersRepository.findByEmail(email);
+    if (!user) {
+      return null;
+    }
+
+    return user;
   }
 }
