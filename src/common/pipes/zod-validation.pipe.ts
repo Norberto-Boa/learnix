@@ -4,7 +4,7 @@ import {
   type ArgumentMetadata,
 } from '@nestjs/common';
 import { ZodError, ZodSchema } from 'zod';
-import { fromError, fromZodError } from 'zod-validation-error/v4';
+import { fromZodError } from 'zod-validation-error/v4';
 
 export class ZodValidationPipe implements PipeTransform {
   constructor(private schema: ZodSchema<any>) {}
@@ -12,7 +12,6 @@ export class ZodValidationPipe implements PipeTransform {
   transform(value: unknown, metadata: ArgumentMetadata) {
     try {
       const parsedValue = this.schema.parse(value);
-      console.log(parsedValue);
       return parsedValue;
     } catch (error) {
       if (error instanceof ZodError) {

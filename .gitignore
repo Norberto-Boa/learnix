@@ -3,6 +3,9 @@
 /node_modules
 /build
 
+public_key.pem
+private_key.pem
+
 data
 # Logs
 logs

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateDTO } from './dto/create.dto';
+import { CreateDTO } from '../auth/dto/create.dto';
 import { UsersRepository } from './repositories/user-repository.interface';
 import type { User } from '@prisma/client';
 
@@ -12,9 +12,9 @@ export class UserService {
     if (userAlreadyExist) {
       throw new Error('User already exists');
     }
-    await this.usersRepository.create(data);
+    const user = await this.usersRepository.create(data);
 
-    return true;
+    return user;
   }
 
   async findByEmail(email: string): Promise<User | null> {

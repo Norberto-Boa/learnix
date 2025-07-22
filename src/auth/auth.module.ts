@@ -5,6 +5,8 @@ import { ConfigService } from '@nestjs/config';
 import type { Env } from 'src/env';
 import { authenticateController } from './auth.controller';
 import { DatabaseModule } from 'src/database/database.module';
+import { UserModule } from 'src/user/user.module';
+import { AuthService } from './auth.service';
 @Module({
   imports: [
     DatabaseModule,
@@ -25,7 +27,9 @@ import { DatabaseModule } from 'src/database/database.module';
         };
       },
     }),
+    UserModule,
   ],
+  providers: [AuthService],
   controllers: [authenticateController],
 })
 export class AuthModule {}

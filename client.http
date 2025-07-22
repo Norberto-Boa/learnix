@@ -5,20 +5,20 @@ POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
-  "email": "johndoe5@gmail.com",
-  "password": "12345678"
+  "email": "johndoe6@gmail.com",
+  "password": "123456789"
 }
 
 ###
 
 # @name Registration
-POST {{baseUrl}}/register
+POST {{baseUrl}}/auth/register
 Content-Type: application/json
 
 {
 	"name": "JohnDoe",
-  "email": "johndoe5@gmail.com",
-  "password": "12345768"
+  "email": "johndoe6@gmail.com",
+  "password": "12345678"
 }
 
 
