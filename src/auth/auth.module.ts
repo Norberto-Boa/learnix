@@ -4,8 +4,10 @@ import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import type { Env } from 'src/env';
 import { authenticateController } from './auth.controller';
+import { DatabaseModule } from 'src/database/database.module';
 @Module({
   imports: [
+    DatabaseModule,
     PassportModule,
     JwtModule.registerAsync({
       inject: [ConfigService],
